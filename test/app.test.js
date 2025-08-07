@@ -1,10 +1,10 @@
 const request = require('supertest');
 const app = require('../app');
 
-describe('GET /hello', () => {
-  it('should respond with Hello World!', async () => {
-    const res = await request(app).get('/hello');
-    expect(res.statusCode).toBe(200);
-    expect(res.text).toBe('Hello World!');
+describe('GET /', () => {
+  it('should return Hello from CI/CD Pipeline 🚀', async () => {
+    const res = await request(app).get('/');
+    expect(res.statusCode).toEqual(200);
+    expect(res.text).toBe('Hello from CI/CD Pipeline 🚀');
   });
 });
