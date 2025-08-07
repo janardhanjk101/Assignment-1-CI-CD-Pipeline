@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'your-dockerhub-janardhanjk/nodejs-ci-cd-app'
+        DOCKER_IMAGE = 'janardhanjk/nodejs-ci-cd-app'
     }
 
     stages {
