@@ -1,16 +1,19 @@
 {
   "name": "nodejs-ci-cd",
   "version": "1.0.0",
+  "description": "Node.js app with CI/CD pipeline using Jenkins and Docker",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "test": "jest"
   },
+  "author": "janardhanjk",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "jest": "^29.0.0",
-    "supertest": "^6.0.0"
+    "supertest": "^6.3.3"
   }
 }
