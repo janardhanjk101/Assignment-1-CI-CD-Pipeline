@@ -1,4 +1,7 @@
 #!/bin/bash
-echo "Starting simulated deployment..."
-sleep 2
-echo "App deployed to staging environment (simulated)."
+
+echo "🚀 Deploying the app..."
+
+# Simulate deployment (e.g., SCP, SSH, Kubernetes, etc.)
+# For now, just output a message
+echo "✅ Deployment script executed (this is a placeholder)."
