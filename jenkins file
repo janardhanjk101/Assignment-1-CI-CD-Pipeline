@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'janardhanjk/nodejs-ci-cd-app'
-        RECIPIENT_EMAIL = 'your-email@example.com'
+        RECIPIENT_EMAIL = 'janardhanrao309@gmail.com'
     }
 
     stages {
