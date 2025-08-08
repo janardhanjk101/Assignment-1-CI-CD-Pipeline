@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'janardhanjk/nodejs-ci-cd-app'
+        RECIPIENT_EMAIL = 'your-email@example.com'
     }
 
     stages {
@@ -46,9 +47,38 @@ pipeline {
     post {
         success {
             echo '✅ Pipeline completed successfully.'
+            emailext(
+                to: "${RECIPIENT_EMAIL}",
+                subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+<h3 style="color:green;">Jenkins Build Success ✅</h3>
+<p>The pipeline <b>${env.JOB_NAME}</b> has completed successfully.</p>
+<ul>
+  <li><b>Build Number:</b> ${env.BUILD_NUMBER}</li>
+  <li><b>Build URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></li>
+</ul>
+<p>Regards,<br>Jenkins</p>
+""",
+                mimeType: 'text/html'
+            )
         }
         failure {
             echo '❌ Pipeline failed.'
+            emailext(
+                to: "${RECIPIENT_EMAIL}",
+                subject: "❌ FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """
+<h3 style="color:red;">Jenkins Build Failed ❌</h3>
+<p>The pipeline <b>${env.JOB_NAME}</b> has failed.</p>
+<ul>
+  <li><b>Build Number:</b> ${env.BUILD_NUMBER}</li>
+  <li><b>Build URL:</b> <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></li>
+</ul>
+<p>Please check the build logs for details.</p>
+<p>Regards,<br>Jenkins</p>
+""",
+                mimeType: 'text/html'
+            )
         }
     }
 }
